@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
     styleUrls: ['app/view/bootstrap.min.css']
 })
 
-export class NavbarComponent {
+export class NavbarBodyComponent {
     title: string = "Navbar Body";
 }
