@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'feature',
+    selector: 'about',
     templateUrl: 'app/view/navbar-body.html',
     styleUrls: ['app/view/bootstrap.css']
 })
 
-export class FeatureComponent {
-    title: string = "This is Feature";
+export class AboutComponent {
+    title: string = "This is About";
 }

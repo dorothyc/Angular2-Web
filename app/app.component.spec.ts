@@ -1,9 +1,9 @@
 /* tslint:disable:no-unused-variable */
-import { AppComponent } from './app.component';
 
 import { TestBed } from '@angular/core/testing';
 
 import { By }             from '@angular/platform-browser';
+import {NavbarTitleComponent} from "./component/navbar-title.component";
 
 ////////  SPECS  /////////////
 
@@ -16,16 +16,16 @@ describe('Smoke test', () => {
 
 describe('AppComponent with TCB', function () {
   beforeEach(() => {
-    TestBed.configureTestingModule({declarations: [AppComponent]});
+    TestBed.configureTestingModule({declarations: [NavbarTitleComponent]});
   });
 
   it('should instantiate component', () => {
-    let fixture = TestBed.createComponent(AppComponent);
-    expect(fixture.componentInstance instanceof AppComponent).toBe(true, 'should create AppComponent');
+    let fixture = TestBed.createComponent(NavbarTitleComponent);
+    expect(fixture.componentInstance instanceof NavbarTitleComponent).toBe(true, 'should create AppComponent');
   });
 
   it('should have expected <h1> text', () => {
-    let fixture = TestBed.createComponent(AppComponent);
+    let fixture = TestBed.createComponent(NavbarTitleComponent);
     fixture.detectChanges();
 
     let h1 = fixture.debugElement.query(el => el.name === 'h1').nativeElement;  // it works
