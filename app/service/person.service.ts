@@ -13,11 +13,20 @@ export class PersonService {
 
   getPerson(): Observable<Person[]> {
     return this.http.get(this.dataurl)
-               .map(this.extractData);
+               .map(this.extractData)
+               .catch(this.handleError);
   }
 
   private extractData(res: Response){
     let body = res.json();
     return body.data || { };
+  }
+
+  private handleError(error: any) {
+    // In a real world app, we might use a remote logging infrastructure...
+    let errorMsg = (error.message) ? error.message :
+        error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    console.error(errorMsg);
+    return Observable.throw(errorMsg);
   }
 }

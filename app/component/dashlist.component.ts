@@ -18,6 +18,7 @@ import { PersonService } from "../service/person.service";
 })
 
 export class DashListComponent {
+  errorMsg: string;
   persons: Person[];
 
   constructor(private personService: PersonService) { }
@@ -29,7 +30,8 @@ export class DashListComponent {
   getPersons() {
     this.personService.getPerson()
       .subscribe(
-        p => this.persons = p
+        p => this.persons = p,
+        error => this.errorMsg = <any>error
       );
   }
 }
