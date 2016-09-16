@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import '../rxjs-operators';
+
 @Component({
     selector: 'navbar-title',
     templateUrl: 'app/view/navbar-title.html',
