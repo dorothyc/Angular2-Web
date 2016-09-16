@@ -7,10 +7,11 @@ import { PricingComponent } from './component/pricing.component';
 import { FeatureComponent } from './component/feature.component';
 import { AboutComponent } from './component/about.component';
 import { routing } from './app.route'
+import {DashListComponent} from "./component/dashlist.component";
 
 @NgModule({
   imports: [ BrowserModule, routing ],
-  declarations: [ HomeComponent, NavbarTitleComponent, FeatureComponent, PricingComponent, AboutComponent ],
+  declarations: [ HomeComponent, NavbarTitleComponent, FeatureComponent, PricingComponent, AboutComponent, DashListComponent ],
   bootstrap: [ NavbarTitleComponent ]
 })
 export class AppModule { }
