@@ -12,12 +12,13 @@ import { routing } from './app.route'
 import { DashListComponent } from "./component/dashlist.component";
 import {PersonData} from "./service/mockperson";
 
+
+// Looks like adding Angular2-in-memory-web-api in 'imports' will override other mock servers
 @NgModule({
   imports: [ BrowserModule,
              routing,
              HttpModule,
-             JsonpModule,
-             InMemoryWebApiModule.forRoot(PersonData)],
+             JsonpModule],
 
   declarations: [ HomeComponent,
                   NavbarTitleComponent,

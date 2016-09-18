@@ -9,8 +9,8 @@ import {Person} from "./person";
 export class PersonService {
   constructor(private http: Http){ }
 
-  //private dataurl = 'http://localhost:4000/data';
-  private dataurl = 'app/persons';
+  private dataurl = 'http://localhost:4000/data';
+  //private dataurl = 'app/persons';
 
   getPerson(): Observable<Person[]> {
     return this.http.get(this.dataurl)
@@ -18,13 +18,15 @@ export class PersonService {
                .catch(this.handleError);
   }
 
-  
+
   addPerson(name: string): Observable<Person> {
     let body = JSON.stringify( {name} );
-    console.log("this is body: " + body);
     let headers = new Headers({'Content-Type': 'application/json'});
-    console.log("this is headers: " + headers);
     let options = new RequestOptions({headers: headers});
+
+    //test
+    console.log("this is body: " + body);
+    console.log("this is headers: " + headers);
     console.log("this is options: " + options);
 
     return this.http.post(this.dataurl, body, options)
@@ -36,9 +38,11 @@ export class PersonService {
   private extractData(res: Response){
     console.log("this is res: " + res);
     let body = res.json();
+
+    //test
     console.log("this is res.json: " + body);
-    console.log("this is body.data: " + body.data);
-    return body.data || { };
+
+    return body || { };
   }
 
   private handleError(error: any) {

@@ -50,6 +50,8 @@ export class DashListComponent implements OnInit{
                         p => this.persons.push(p),
                         error => this.errorMsg = <any>error
                       );
+
+    //test
     console.log("persons: " + this.persons);
   }
 
