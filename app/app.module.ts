@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, JsonpModule }  from '@angular/http';
+import { InMemoryWebApiModule }     from 'angular2-in-memory-web-api';
 
 import { HomeComponent } from './component/home.component';
 import { NavbarTitleComponent } from './component/navbar-title.component';
@@ -9,18 +10,20 @@ import { FeatureComponent } from './component/feature.component';
 import { AboutComponent } from './component/about.component';
 import { routing } from './app.route'
 import { DashListComponent } from "./component/dashlist.component";
+import {PersonData} from "./service/mockperson";
 
 @NgModule({
-  imports: [ BrowserModule, 
+  imports: [ BrowserModule,
              routing,
              HttpModule,
-             JsonpModule ],
+             JsonpModule,
+             InMemoryWebApiModule.forRoot(PersonData)],
 
-  declarations: [ HomeComponent, 
-                  NavbarTitleComponent, 
-                  FeatureComponent, 
-                  PricingComponent, 
-                  AboutComponent, 
+  declarations: [ HomeComponent,
+                  NavbarTitleComponent,
+                  FeatureComponent,
+                  PricingComponent,
+                  AboutComponent,
                   DashListComponent ],
 
   bootstrap: [ NavbarTitleComponent ]
