@@ -2,27 +2,42 @@
   "data": [
     {
       "id": "1",
-      "name": "Windstorm"
+      "name": "Windstorm",
+      "nickname": [
+        {
+        "one": "aaa",
+        "two": "bbb"
+        },
+        {
+          "three": "aathree"
+        }
+      ] 
     },
     {
       "id": "2",
-      "name": "Bombasto"
+      "name": "Bombasto",
+      "nickname": [
+        {
+        "one": "ccc",
+        "two": "ddd"
+        },
+        {
+          "three": "ccthree"
+        }
+      ]
     },
     {
       "id": "3",
-      "name": "Magneta"
-    },
-    {
-      "id": "4",
-      "name": "Tornado"
-    },
-    {
-      "name": "Linda",
-      "id": "35bee04f-f34e-41f6-8009-fdefe985f813"
-    },
-    {
-      "name": "Cai",
-      "id": "bc50d92a-81de-4d1e-b78c-e8a86d302817"
+      "name": "Magneta",
+      "nickname": [
+        {
+        "one": "eee",
+        "two": "fff"
+        },
+        {
+          "three": "eethree"
+        }
+      ]
     }
   ]
 }

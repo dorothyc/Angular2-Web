@@ -9,7 +9,7 @@ import { PersonService } from "../service/person.service";
               <h3> Persons: </h3>
               <ul>
                 <li *ngFor = "let person of persons">
-                  {{person.name}}
+                  {{person.id}}
                 </li>
               </ul>
               New Person Name:
@@ -38,21 +38,23 @@ export class DashListComponent implements OnInit{
     this.personService.getPerson()
       .subscribe(
         p => this.persons = p,
-        error => this.errorMsg = <any>error
+        error => this.errorMsg = <any>error,
+        () => {console.log("this is person: "); console.log(this.persons[0])}
       );
   }
 
 
   addPerson(name: string) {
+    console.log("Now in addPerson dashlist: ");
     if(!name) {return;}
-    this.personService.addPerson(name)
+    this.personService.addPerson(111, name)
                       .subscribe(
                         p => this.persons.push(p),
                         error => this.errorMsg = <any>error
                       );
 
     //test
-    console.log("persons: " + this.persons);
+    console.log("This is updated persons: " + JSON.stringify(this.persons));
   }
 
 }

@@ -11,23 +11,32 @@ export class PersonService {
 
   private dataurl = 'http://localhost:4000/data';
   //private dataurl = 'app/persons';
+  //private dataurl = 'http://localhost:8080/greeting';
 
   getPerson(): Observable<Person[]> {
+    console.log("Now in getPerson Service: ");
+    console.log("this is http get: ");
+    console.log(JSON.stringify(this.http.get(this.dataurl)));
+
+    console.log("this is JSON: ");
+    //JSON.parse(JSON.stringify(this.http.get(this.dataurl).map(this.extractData), function(k, v){console.log(v)});
+
     return this.http.get(this.dataurl)
                .map(this.extractData)
                .catch(this.handleError);
   }
 
 
-  addPerson(name: string): Observable<Person> {
-    let body = JSON.stringify( {name} );
+  addPerson(id:number, name: string): Observable<Person> {
+    console.log("Now in addPerson Service: ");
+    let body = JSON.stringify( {id, name} );
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
 
     //test
     console.log("this is body: " + body);
-    console.log("this is headers: " + headers);
-    console.log("this is options: " + options);
+    console.log("this is http post: ");
+    console.log(this.http.post(this.dataurl, body, options));
 
     return this.http.post(this.dataurl, body, options)
       .map(this.extractData)
@@ -35,12 +44,27 @@ export class PersonService {
   }
 
 
+
   private extractData(res: Response){
-    console.log("this is res: " + res);
+    console.log("this is res: ");
+    console.log(JSON.stringify(res));
+
     let body = res.json();
 
+    /*
+    console.log("this is JSON: ");
+    JSON.parse(JSON.stringify(body[0]), function(k, v){
+       if(k === "name") console.log(v)
+    });
+    */
+
+    let obj = res.json();
+    let status = obj[0].nickname[1].three;
+    console.log("status: ");
+    console.log(status);
     //test
-    console.log("this is res.json: " + body);
+    //console.log("this is res.json: ");
+    //console.log(JSON.stringify(obj[0]));
 
     return body || { };
   }
