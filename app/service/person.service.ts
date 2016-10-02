@@ -9,9 +9,9 @@ import {Person} from "./person";
 export class PersonService {
   constructor(private http: Http){ }
 
-  private dataurl = 'http://localhost:4000/data';
+  //private dataurl = 'http://localhost:4000/data';
   //private dataurl = 'app/persons';
-  //private dataurl = 'http://localhost:8080/greeting';
+  private dataurl = 'http://localhost:8080/pendings';
 
   getPerson(): Observable<Person[]> {
     console.log("Now in getPerson Service: ");
@@ -22,7 +22,7 @@ export class PersonService {
     //JSON.parse(JSON.stringify(this.http.get(this.dataurl).map(this.extractData), function(k, v){console.log(v)});
 
     return this.http.get(this.dataurl)
-               .map(this.extractData)
+               .map(data => data.json())
                .catch(this.handleError);
   }
 

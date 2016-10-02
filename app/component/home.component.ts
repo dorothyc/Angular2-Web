@@ -2,8 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'home',
-    templateUrl: 'app/view/navbar-body.html',
-    styleUrls: ['app/view/bootstrap.min.css']
+    template: `
+                {{title}}
+                <dashlist></dashlist>
+              `
+    //templateUrl: 'app/view/navbar-body.html',
+    //styleUrls: ['app/view/bootstrap.min.css']
 })
 
 export class HomeComponent {
