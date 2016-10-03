@@ -12,6 +12,7 @@ import { PersonService } from "../service/person.service";
                   {{person.id}}
                 </li>
               </ul>
+              
               New Person Name:
               <input #newPersonName />
               <button (click) = "addPerson(newPersonName.value); newPersonName.value = '' ">
