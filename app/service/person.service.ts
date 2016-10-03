@@ -41,7 +41,7 @@ export class PersonService {
   }
 
 
-  addPerson(id:number, name: string): Observable<Person> {
+  addPerson(id:number, name: string): Observable<Person[]> {
     console.log("Now in addPerson Service: ");
     let body = JSON.stringify( {id, name} );
     let headers = new Headers({'Content-Type': 'application/json'});
@@ -53,7 +53,7 @@ export class PersonService {
     console.log(this.http.post(this.dataurl_database, body, options));
 
     return this.http.post(this.dataurl_database, body, options)
-      .map(this.extractData)
+      .map(data => data.json())
       .catch(this.handleError);
   }
 
