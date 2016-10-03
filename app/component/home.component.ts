@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {PersonService} from "../service/person.service";
 import {Person} from "../service/person";
 
@@ -6,7 +6,7 @@ import {Person} from "../service/person";
     selector: 'home',
     template: `
                 {{title}}
-                <button (click) = "getPersons()">Get Persons</button>
+                <button (click) = "getPersonsFromDatabase()">Get the latest list</button>
                 <person-list [persons] = persons></person-list>
               `,
     providers: [ PersonService ]
@@ -14,16 +14,24 @@ import {Person} from "../service/person";
     //styleUrls: ['app/view/bootstrap.min.css']
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit{
     title: string = "This is Home";
     persons: Person[];
 
+  ngOnInit(): void {
+    this.getPersonsFromLocal();
+  }
+
     constructor(private personService: PersonService) { }
 
-    getPersons() {
-        this.personService.getPerson()
+    getPersonsFromDatabase() {
+        this.personService.getPersonFromDatabase()
           .subscribe(
             p => this.persons = p
           );
-  }
+    }
+
+    getPersonsFromLocal(){
+      this.personService.getPersonFromLocal().subscribe(p => this.persons = p);
+    }
 }
