@@ -12,6 +12,7 @@ import { routing } from './app.route'
 import { DashListComponent } from "./component/dashlist.component";
 import {PersonData} from "./service/mockperson";
 import {PersonList} from "./component/personList.component";
+import {IdComponent} from "./component/id.component";
 
 
 // Looks like adding Angular2-in-memory-web-api in 'imports' will override other mock servers
@@ -27,7 +28,8 @@ import {PersonList} from "./component/personList.component";
                   PricingComponent,
                   AboutComponent,
                   DashListComponent,
-                  PersonList],
+                  PersonList,
+                  IdComponent],
 
   bootstrap: [ NavbarTitleComponent ]
 })
