@@ -41,8 +41,8 @@ export class PersonService {
   }
 
 
-  addPerson(id:number, name: string): Observable<Person[]> {
-    console.log("Now in addPerson Service: ");
+  updatePerson(id:number, name: string): Observable<Person[]> {
+    console.log("Now in updatePerson Service: ");
     let body = JSON.stringify( {id, name} );
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});

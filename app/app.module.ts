@@ -14,13 +14,16 @@ import {PersonData} from "./service/mockperson";
 import {PersonList} from "./component/personList.component";
 import {IdComponent} from "./component/id.component";
 
+import { FormsModule } from '@angular/forms';
+import {PersonFormComponent} from "./component/person-form.component";
 
 // Looks like adding Angular2-in-memory-web-api in 'imports' will override other mock servers
 @NgModule({
   imports: [ BrowserModule,
              routing,
              HttpModule,
-             JsonpModule],
+             JsonpModule,
+             FormsModule],
 
   declarations: [ HomeComponent,
                   NavbarTitleComponent,
@@ -29,7 +32,8 @@ import {IdComponent} from "./component/id.component";
                   AboutComponent,
                   DashListComponent,
                   PersonList,
-                  IdComponent],
+                  IdComponent,
+                  PersonFormComponent],
 
   bootstrap: [ NavbarTitleComponent ]
 })

@@ -28,6 +28,6 @@ import {PersonService} from "../service/person.service";
 
   updatePerson(){
     //console.log("now updating");
-    this.personService.addPerson(555, "ggg").subscribe(data => this.persons = data);
+    this.personService.updatePerson(555, "ggg").subscribe(data => this.persons = data);
   }
  }

@@ -45,10 +45,11 @@ export class DashListComponent implements OnInit{
   }
 
 
+/*
   addPerson(name: string) {
     console.log("Now in addPerson dashlist: ");
     if(!name) {return;}
-    this.personService.addPerson(111, name)
+    this.personService.updatePerson(111, name)
                       .subscribe(
                         p => this.persons.push(p),
                         error => this.errorMsg = <any>error
@@ -57,5 +58,6 @@ export class DashListComponent implements OnInit{
     //test
     console.log("This is updated persons: " + JSON.stringify(this.persons));
   }
+*/
 
 }
