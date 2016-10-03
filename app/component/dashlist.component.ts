@@ -36,7 +36,7 @@ export class DashListComponent implements OnInit{
   }
 
   getPersons() {
-    this.personService.getPerson()
+    this.personService.getPersonFromDatabase()
       .subscribe(
         p => this.persons = p,
         error => this.errorMsg = <any>error,

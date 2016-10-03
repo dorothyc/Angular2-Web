@@ -11,19 +11,33 @@ export class PersonService {
 
   //private dataurl = 'http://localhost:4000/data';
   //private dataurl = 'app/persons';
-  private dataurl = 'http://localhost:8080/pendings';
+  private dataurl_database = 'http://localhost:8080/pendings';
+  private dataurl_local = 'http://localhost:8080/pendingstwo';
 
-  getPerson(): Observable<Person[]> {
+  getPersonFromDatabase(): Observable<Person[]> {
     console.log("Now in getPerson Service: ");
     console.log("this is http get: ");
-    console.log(JSON.stringify(this.http.get(this.dataurl)));
+    console.log(JSON.stringify(this.http.get(this.dataurl_database)));
 
     console.log("this is JSON: ");
     //JSON.parse(JSON.stringify(this.http.get(this.dataurl).map(this.extractData), function(k, v){console.log(v)});
 
-    return this.http.get(this.dataurl)
+    return this.http.get(this.dataurl_database)
                .map(data => data.json())
                .catch(this.handleError);
+  }
+
+  getPersonFromLocal(): Observable<Person[]> {
+    console.log("Now in getPerson Service: ");
+    console.log("this is http get: ");
+    console.log(JSON.stringify(this.http.get(this.dataurl_database)));
+
+    console.log("this is JSON: ");
+    //JSON.parse(JSON.stringify(this.http.get(this.dataurl).map(this.extractData), function(k, v){console.log(v)});
+
+    return this.http.get(this.dataurl_local)
+      .map(data => data.json())
+      .catch(this.handleError);
   }
 
 
@@ -36,9 +50,9 @@ export class PersonService {
     //test
     console.log("this is body: " + body);
     console.log("this is http post: ");
-    console.log(this.http.post(this.dataurl, body, options));
+    console.log(this.http.post(this.dataurl_database, body, options));
 
-    return this.http.post(this.dataurl, body, options)
+    return this.http.post(this.dataurl_database, body, options)
       .map(this.extractData)
       .catch(this.handleError);
   }
