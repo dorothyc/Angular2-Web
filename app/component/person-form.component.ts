@@ -4,7 +4,7 @@ import {Person} from "../service/person";
 @Component({
   moduleId: module.id,
   selector: 'person-form',
-  template: ``
+  templateUrl: '../view/person-form.html'
 })
 
 export class PersonFormComponent{
