@@ -3,14 +3,14 @@ import { Component } from '@angular/core';
 import '../rxjs-operators';
 
 @Component({
-    selector: 'navbar-title',
+    selector: 'project-title',
     template: `
                 <h1>Project Title</h1>
                 <nav>
-                    <a routerLink="/home" routerLinkActive="active">Home</a>
-                    <a routerLink="/feature" routerLinkActive="active">Feature</a>
-                    <a routerLink="/pricing" routerLinkActive="active">Pricing</a>
-                    <a routerLink="/about" routerLinkActive="active">About</a>
+                    <a routerLink="/pending" routerLinkActive="active">Pending</a>
+                    <a routerLink="/tabone" routerLinkActive="active">TabOne</a>
+                    <a routerLink="/tabtwo" routerLinkActive="active">TabTwo</a>
+                    <a routerLink="/tabthree" routerLinkActive="active">TabThree</a>
                 </nav>
                 <router-outlet></router-outlet>
                 <person-form></person-form>
@@ -19,6 +19,6 @@ import '../rxjs-operators';
     //styleUrls: ['app/view/bootstrap.min.css', 'app/view/navbar.css']
 })
 
-export class NavbarTitleComponent {
+export class ProjectTitleComponent {
 
 }

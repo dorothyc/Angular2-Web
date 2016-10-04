@@ -3,7 +3,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { By }             from '@angular/platform-browser';
-import {NavbarTitleComponent} from "./component/navbar-title.component";
+import {ProjectTitleComponent} from "./component/project-title.component";
 
 ////////  SPECS  /////////////
 
@@ -16,16 +16,16 @@ describe('Smoke test', () => {
 
 describe('AppComponent with TCB', function () {
   beforeEach(() => {
-    TestBed.configureTestingModule({declarations: [NavbarTitleComponent]});
+    TestBed.configureTestingModule({declarations: [ProjectTitleComponent]});
   });
 
   it('should instantiate component', () => {
-    let fixture = TestBed.createComponent(NavbarTitleComponent);
-    expect(fixture.componentInstance instanceof NavbarTitleComponent).toBe(true, 'should create AppComponent');
+    let fixture = TestBed.createComponent(ProjectTitleComponent);
+    expect(fixture.componentInstance instanceof ProjectTitleComponent).toBe(true, 'should create AppComponent');
   });
 
   it('should have expected <h1> text', () => {
-    let fixture = TestBed.createComponent(NavbarTitleComponent);
+    let fixture = TestBed.createComponent(ProjectTitleComponent);
     fixture.detectChanges();
 
     let h1 = fixture.debugElement.query(el => el.name === 'h1').nativeElement;  // it works

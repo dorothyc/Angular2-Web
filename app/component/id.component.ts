@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'id',
   template: `
             <h3>this is a test id component</h3>
-            <button (click) = "backHome()">>Back</button>
+            <button (click) = "backHome()">Back</button>
             `
 })
 

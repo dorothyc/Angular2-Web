@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Person} from "../service/person";
+import {Library} from "../service/library";
 
 @Component({
   moduleId: module.id,
@@ -9,7 +9,7 @@ import {Person} from "../service/person";
 
 export class PersonFormComponent{
   options = ["Failed", "Passed", "Pending"]
-  model = new Person(666, this.options[1], "some comments");
+  model = new Library(666, this.options[1], "some comments");
 
   submitted = false;
 

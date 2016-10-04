@@ -3,15 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, JsonpModule }  from '@angular/http';
 import { InMemoryWebApiModule }     from 'angular2-in-memory-web-api';
 
-import { HomeComponent } from './component/home.component';
-import { NavbarTitleComponent } from './component/navbar-title.component';
-import { PricingComponent } from './component/pricing.component';
-import { FeatureComponent } from './component/feature.component';
-import { AboutComponent } from './component/about.component';
+import { PendingComponent } from './component/pending.component';
+import { ProjectTitleComponent } from './component/project-title.component';
+import { TabTwoComponent } from './component/tabtwo.component';
+import { TabOneComponent } from './component/tabone.component';
+import { TabThreeComponent } from './component/tabthree.component';
 import { routing } from './app.route'
 import { DashListComponent } from "./component/dashlist.component";
 import {PersonData} from "./service/mockperson";
-import {PersonList} from "./component/personList.component";
+import {LibraryList} from "./component/libraryList.component";
 import {IdComponent} from "./component/id.component";
 
 import { FormsModule } from '@angular/forms';
@@ -25,16 +25,16 @@ import {PersonFormComponent} from "./component/person-form.component";
              JsonpModule,
              FormsModule],
 
-  declarations: [ HomeComponent,
-                  NavbarTitleComponent,
-                  FeatureComponent,
-                  PricingComponent,
-                  AboutComponent,
+  declarations: [ PendingComponent,
+                  ProjectTitleComponent,
+                  TabOneComponent,
+                  TabTwoComponent,
+                  TabThreeComponent,
                   DashListComponent,
-                  PersonList,
+                  LibraryList,
                   IdComponent,
                   PersonFormComponent],
 
-  bootstrap: [ NavbarTitleComponent ]
+  bootstrap: [ ProjectTitleComponent ]
 })
 export class AppModule { }

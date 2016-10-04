@@ -1,32 +1,32 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { FeatureComponent } from './component/feature.component'
-import { HomeComponent } from "./component/home.component";
-import {PricingComponent} from "./component/pricing.component";
-import {AboutComponent} from "./component/about.component";
+import { TabOneComponent } from './component/tabone.component'
+import { PendingComponent } from "./component/pending.component";
+import {TabTwoComponent} from "./component/tabtwo.component";
+import {TabThreeComponent} from "./component/tabthree.component";
 import {IdComponent} from "./component/id.component";
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/home',
+        redirectTo: '/pending',
         pathMatch: 'full'
     },
     {
-        path: 'home',
-        component: HomeComponent
+        path: 'pending',
+        component: PendingComponent
     },
     {
-        path: 'feature',
-        component: FeatureComponent
+        path: 'tabone',
+        component: TabOneComponent
     },
     {
-        path: 'pricing',
-        component: PricingComponent
+        path: 'tabtwo',
+        component: TabTwoComponent
     },
     {
-        path: 'about',
-        component: AboutComponent
+        path: 'tabthree',
+        component: TabThreeComponent
     },
     {
       path: 'id',

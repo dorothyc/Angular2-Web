@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from "../service/person";
-import { PersonService } from "../service/person.service";
+import { Library } from "../service/library";
+import { LibraryService } from "../service/library.service";
 
 @Component({
   selector: 'dashlist',
@@ -22,21 +22,21 @@ import { PersonService } from "../service/person.service";
               <div class = "error" *ngIf = "errorMsg">{{errorMsg}}</div>
             `,
   styleUrls: ['app/view/bootstrap.css', 'app/view/dashboard.css'],
-  providers: [ PersonService ]
+  providers: [ LibraryService ]
 })
 
 export class DashListComponent implements OnInit{
   errorMsg: string;
-  persons: Person[];
+  persons: Library[];
 
-  constructor(private personService: PersonService) { }
+  constructor(private personService: LibraryService) { }
 
   ngOnInit() {
     this.getPersons();
   }
 
   getPersons() {
-    this.personService.getPersonFromDatabase()
+    this.personService.getLibraryFromDatabase()
       .subscribe(
         p => this.persons = p,
         error => this.errorMsg = <any>error,
