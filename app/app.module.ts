@@ -9,10 +9,9 @@ import { TabTwoComponent } from './component/tabtwo.component';
 import { TabOneComponent } from './component/tabone.component';
 import { TabThreeComponent } from './component/tabthree.component';
 import { routing } from './app.route'
-import { DashListComponent } from "./component/dashlist.component";
-import {PersonData} from "./service/mockperson";
+
 import {LibraryList} from "./component/libraryList.component";
-import {IdComponent} from "./component/id.component";
+import {ReviewComponent} from "./component/review.component";
 
 import { FormsModule } from '@angular/forms';
 import {PersonFormComponent} from "./component/person-form.component";
@@ -30,9 +29,8 @@ import {PersonFormComponent} from "./component/person-form.component";
                   TabOneComponent,
                   TabTwoComponent,
                   TabThreeComponent,
-                  DashListComponent,
                   LibraryList,
-                  IdComponent,
+                  ReviewComponent,
                   PersonFormComponent],
 
   bootstrap: [ ProjectTitleComponent ]

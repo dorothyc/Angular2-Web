@@ -4,7 +4,7 @@ import { TabOneComponent } from './component/tabone.component'
 import { PendingComponent } from "./component/pending.component";
 import {TabTwoComponent} from "./component/tabtwo.component";
 import {TabThreeComponent} from "./component/tabthree.component";
-import {IdComponent} from "./component/id.component";
+import {ReviewComponent} from "./component/review.component";
 
 const routes: Routes = [
     {
@@ -28,12 +28,10 @@ const routes: Routes = [
         path: 'tabthree',
         component: TabThreeComponent
     },
-    {
-      path: 'id',
-      component: IdComponent
-    }
+  {
+    path: 'review/:id',
+    component: ReviewComponent
+  }
 ]
 
 export const routing = RouterModule.forRoot(routes);
-
-//
