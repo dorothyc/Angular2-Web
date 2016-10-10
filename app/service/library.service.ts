@@ -11,8 +11,8 @@ export class LibraryService {
 
   //private dataurl = 'http://localhost:4000/data';
   //private dataurl = 'app/libraries';
-  private dataurl_database = 'http://localhost:8080/pendings';
-  private dataurl_local = 'http://localhost:8080/pendingstwo';
+  private dataurl_database = 'http://localhost:8080/pending_db';
+  private dataurl_local = 'http://localhost:8080/pending_local';
 
   getLibraryFromDatabase(): Observable<Library[]> {
     return this.http.get(this.dataurl_database)

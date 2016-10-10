@@ -15,6 +15,7 @@ import {ReviewComponent} from "./component/review.component";
 
 import { FormsModule } from '@angular/forms';
 import {HeroFormComponent} from "./other/hero-form.component";
+import {LibraryFormComponent} from "./component/libraryform.component";
 
 // Looks like adding Angular2-in-memory-web-api in 'imports' will override other mock servers
 @NgModule({
@@ -31,7 +32,8 @@ import {HeroFormComponent} from "./other/hero-form.component";
                   TabThreeComponent,
                   LibraryList,
                   ReviewComponent,
-                  HeroFormComponent],
+                  HeroFormComponent,
+                  LibraryFormComponent],
 
   bootstrap: [ ProjectTitleComponent ]
 })

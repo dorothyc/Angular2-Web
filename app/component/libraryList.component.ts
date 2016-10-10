@@ -11,9 +11,10 @@ import {Router} from "@angular/router";
                     <div *ngFor = "let lib of libraries">
                         <span (click) = "onSelect(lib)">{{lib.id}}</span> 
                         &nbsp;
-                        {{lib.library_id}} &nbsp; {{lib.status.qc0_status}} &nbsp; {{lib.status.qc_comments}}
-
-                        <button (click) = "updateLibrary(lib, 'add something')">Update</button>
+                        {{lib.library_id}} &nbsp; {{lib.status}} &nbsp; {{lib.comments}}
+                        &nbsp;
+                        <library-form [library] = lib></library-form>
+                        <!-- <button (click) = "updateLibrary(lib, 'add something')">Update</button> -->
                     </div>
                 </div>
                 <router-outlet></router-outlet>
@@ -34,8 +35,9 @@ export class LibraryList{
     this.router.navigate(['/review', lib.id]);
   }
 
+  /*
   updateLibrary(lib: Library, comments: string){
     this.libraryService.updateLibrary(lib.id, comments).subscribe(data => this.libraries = data);
   }
-
+  */
 }

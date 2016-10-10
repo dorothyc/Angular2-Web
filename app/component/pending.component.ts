@@ -23,14 +23,14 @@ export class PendingComponent implements OnInit{
     this.getLibraryFromLocal();
   }
 
-    constructor(private personService: LibraryService) { }
+    constructor(private libraryService: LibraryService) { }
 
     getLibraryFromDatabase() {
-        this.personService.getLibraryFromDatabase()
+        this.libraryService.getLibraryFromDatabase()
           .subscribe(lib => this.libraries = lib);
     }
 
     getLibraryFromLocal(){
-      this.personService.getLibraryFromLocal().subscribe(lib => this.libraries = lib);
+      this.libraryService.getLibraryFromLocal().subscribe(lib => this.libraries = lib);
     }
 }
