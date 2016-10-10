@@ -14,7 +14,7 @@ import {LibraryList} from "./component/libraryList.component";
 import {ReviewComponent} from "./component/review.component";
 
 import { FormsModule } from '@angular/forms';
-import {HeroFormComponent} from "./other/hero-form.component";
+import {HeroFormComponent} from "./tutorial-online/form/hero-form.component";
 import {LibraryFormComponent} from "./component/libraryform.component";
 
 // Looks like adding Angular2-in-memory-web-api in 'imports' will override other mock servers
@@ -25,15 +25,24 @@ import {LibraryFormComponent} from "./component/libraryform.component";
              JsonpModule,
              FormsModule],
 
-  declarations: [ PendingComponent,
-                  ProjectTitleComponent,
-                  TabOneComponent,
-                  TabTwoComponent,
-                  TabThreeComponent,
-                  LibraryList,
-                  ReviewComponent,
-                  HeroFormComponent,
-                  LibraryFormComponent],
+  declarations: [
+    ProjectTitleComponent,
+
+    TabOneComponent,
+    TabTwoComponent,
+    TabThreeComponent,
+
+    PendingComponent,
+    LibraryList,
+    LibraryFormComponent,
+
+    ReviewComponent,
+
+    // form examples
+    HeroFormComponent,
+
+    // onchanges examples
+  ],
 
   bootstrap: [ ProjectTitleComponent ]
 })

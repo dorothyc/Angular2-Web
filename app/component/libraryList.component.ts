@@ -15,6 +15,7 @@ import {Router} from "@angular/router";
                         &nbsp;
                         <library-form [library] = lib></library-form>
                         <!-- <button (click) = "updateLibrary(lib, 'add something')">Update</button> -->
+                        &nbsp;
                     </div>
                 </div>
                 <router-outlet></router-outlet>
