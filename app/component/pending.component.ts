@@ -8,6 +8,7 @@ import {Library} from "../service/library";
                 {{title}}
                 <button (click) = "getLibraryFromDatabase()">Get the latest list</button>
                 <lib-list [libraries] = libraries></lib-list>
+                <hero-form></hero-form>
               `,
     providers: [ LibraryService ]
     //templateUrl: 'app/view/navbar-body.html',
