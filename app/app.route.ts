@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { TabOneComponent } from './component/tabone.component'
-import { PendingComponent } from "./component/pendingPage/pending.component";
+import { PendingListComponent } from "./component/pendingPage/pendingList.component";
 import {TabTwoComponent} from "./component/tabtwo.component";
 import {TabThreeComponent} from "./component/tabthree.component";
 import {ReviewComponent} from "./component/review.component";
@@ -14,7 +14,7 @@ const routes: Routes = [
     },
     {
         path: 'pending',
-        component: PendingComponent
+        component: PendingListComponent
     },
     {
         path: 'tabone',

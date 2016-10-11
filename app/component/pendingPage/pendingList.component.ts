@@ -3,11 +3,18 @@ import {LibraryService} from "../../service/library.service";
 import {Library} from "../../service/library";
 
 @Component({
-    selector: 'pending',
+    selector: 'pending-list',
     template: `
                 {{title}}
-                <button (click) = "getLibraryFromDatabase()">Get the latest list</button>
-                <lib-list [libraries] = libraries></lib-list>
+                <br>
+                <button (click) = "getLibraryFromDatabase()">Get The Latest Pending List</button>
+                
+                <div *ngIf = "libraries">
+                <lib-list *ngFor = "let lib of libraries"
+                          [library] = lib> 
+                </lib-list>
+                </div>
+                
                 <hero-form></hero-form>
               `,
     providers: [ LibraryService ]
@@ -15,13 +22,13 @@ import {Library} from "../../service/library";
     //styleUrls: ['app/view/bootstrap.min.css']
 })
 
-export class PendingComponent implements OnInit{
-    title: string = "This is Pending";
+export class PendingListComponent implements OnInit{
+    title: string = "This is Pending page";
     libraries: Library[];
 
-  ngOnInit(): void {
-    this.getLibraryFromLocal();
-  }
+    ngOnInit(): void {
+      this.getLibraryFromLocal();
+    }
 
     constructor(private libraryService: LibraryService) { }
 
