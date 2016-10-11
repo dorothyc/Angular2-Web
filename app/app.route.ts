@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { TabOneComponent } from './component/tabone.component'
-import { PendingComponent } from "./component/pending.component";
+import { PendingComponent } from "./component/pendingPage/pending.component";
 import {TabTwoComponent} from "./component/tabtwo.component";
 import {TabThreeComponent} from "./component/tabthree.component";
 import {ReviewComponent} from "./component/review.component";

@@ -12,6 +12,7 @@ import '../rxjs-operators';
                     <a routerLink="/tabtwo" routerLinkActive="active">TabTwo</a>
                     <a routerLink="/tabthree" routerLinkActive="active">TabThree</a>
                 </nav>
+                <br>
                 <router-outlet></router-outlet>
               `
     //templateUrl: 'app/view/navbar-title.html',

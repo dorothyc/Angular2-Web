@@ -2,8 +2,8 @@
  * Created by linda on 2016-10-09.
  */
 import {Component, Input} from '@angular/core';
-import {Library} from "../service/library";
-import {LibraryService} from "../service/library.service";
+import {Library} from "../../service/library";
+import {LibraryService} from "../../service/library.service";
 
 @Component({
   selector: 'library-form',

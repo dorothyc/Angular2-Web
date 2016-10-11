@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LibraryService} from "../service/library.service";
-import {Library} from "../service/library";
+import {LibraryService} from "../../service/library.service";
+import {Library} from "../../service/library";
 
 @Component({
     selector: 'pending',

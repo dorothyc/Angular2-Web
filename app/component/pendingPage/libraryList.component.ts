@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import {Library} from "../service/library";
-import {LibraryService} from "../service/library.service";
+import {Library} from "../../service/library";
+import {LibraryService} from "../../service/library.service";
 import {Router} from "@angular/router";
 
 @Component({
