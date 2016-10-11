@@ -23,6 +23,8 @@ import {LibraryService} from "../../service/library.service";
                   
                 </div>
               </form>
+              
+              <button (click) = "testemit()">testemit</button>
             `
 })
 
@@ -33,14 +35,14 @@ export class LibraryFormComponent{
   library: Library;
 
   @Output()
-  libs = new EventEmitter<Library[]>();
+  updatedLibs = new EventEmitter<Library[]>();
 
   constructor(private libraryService: LibraryService){
   }
 
   update(){
     this.libraryService.updateLibrary(this.library.id, (this.autoAppend()? 'Manual Review: ':' ') + this.library.addcomments)
-        .subscribe(() => location.reload());
+        .subscribe(data => this.updatedLibs.emit(data));
   }
 
   private autoAppend(): boolean{
@@ -48,5 +50,10 @@ export class LibraryFormComponent{
       return false;
     else
       return true;
+  }
+
+  testemit(){
+    this.libraryService.updateLibrary(this.library.id, (this.autoAppend()? 'Manual Review: ':' ') + this.library.addcomments)
+      .subscribe(data => this.updatedLibs.emit(data));
   }
 }

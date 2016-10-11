@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
               &nbsp;
               {{library.library_id}} &nbsp; {{library.status}} &nbsp; {{library.comments}} &nbsp; {{library.addcomments}}
               &nbsp;
-              <library-form [library] = library></library-form>
+          
               <!-- <button (click) = "updateLibrary(lib, 'add something')">Update</button> -->
               <router-outlet></router-outlet>
               `,
