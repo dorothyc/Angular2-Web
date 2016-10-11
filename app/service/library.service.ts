@@ -27,8 +27,8 @@ export class LibraryService {
   }
 
 
-  updateLibrary(id:number, comments: string): Observable<Library[]> {
-    let body = JSON.stringify( {id, comments} );
+  updateLibrary(id:number, addcomments: string): Observable<Library[]> {
+    let body = JSON.stringify( {id, addcomments} );
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
 

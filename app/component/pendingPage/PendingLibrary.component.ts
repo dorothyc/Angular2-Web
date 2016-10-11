@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
               <br>
               <span (click) = "onSelect(library)">{{library.id}}</span> 
               &nbsp;
-              {{library.library_id}} &nbsp; {{library.status}} &nbsp; {{library.comments}}
+              {{library.library_id}} &nbsp; {{library.status}} &nbsp; {{library.comments}} &nbsp; {{library.addcomments}}
               &nbsp;
               <library-form [library] = library></library-form>
               <!-- <button (click) = "updateLibrary(lib, 'add something')">Update</button> -->
