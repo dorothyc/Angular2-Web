@@ -14,21 +14,21 @@ export class LibraryService {
   private dataurl_database = 'http://localhost:8080/pending_db';
   private dataurl_local = 'http://localhost:8080/pending_local';
 
-  getLibraryFromDatabase(): Observable<Library[]> {
+  getLibraryFromDatabase(): Observable<any[]> {
     return this.http.get(this.dataurl_database)
                .map(data => data.json())
                .catch(this.handleError);
   }
 
-  getLibraryFromLocal(): Observable<Library[]> {
+  getLibraryFromLocal(): Observable<any[]> {
     return this.http.get(this.dataurl_local)
       .map(data => data.json())
       .catch(this.handleError);
   }
 
 
-  updateLibrary(id:number, comments: string): Observable<Library[]> {
-    let body = JSON.stringify( {id, comments} );
+  updateLibrary(id:number, status: string, addcomments: string): Observable<Library[]> {
+    let body = JSON.stringify( {id, status, addcomments} );
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
 

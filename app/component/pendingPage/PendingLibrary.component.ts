@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 import {Library} from "../../service/library";
 import {LibraryService} from "../../service/library.service";
 import {Router} from "@angular/router";
@@ -6,21 +6,27 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'lib-list',
   template: `
-              <br>
               <span (click) = "onSelect(library)">{{library.id}}</span> 
               &nbsp;
-              {{library.library_id}} &nbsp; {{library.status}} &nbsp; {{library.comments}}
+              {{library.library_id}} &nbsp; {{library.status}} &nbsp; {{library.comments}} &nbsp; {{library.addcomments}}
               &nbsp;
-              <library-form [library] = library></library-form>
+              
+              <br>
               <!-- <button (click) = "updateLibrary(lib, 'add something')">Update</button> -->
               <router-outlet></router-outlet>
               `,
 })
 
-export class PendingLibraryComponent{
+export class PendingLibraryComponent implements OnInit{
 
   @Input()
-  library: Library;
+  library: any;
+
+  //library: Library;
+
+  ngOnInit(): void {
+    //this.library = new Library(this.inputlibrary.id, this.inputlibrary.library_id, this.inputlibrary.status.qc0_status, this.inputlibrary.status.qc_comments, this.inputlibrary.addcomments);
+  }
 
   constructor(
     private libraryService: LibraryService,

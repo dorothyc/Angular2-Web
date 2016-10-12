@@ -1,7 +1,7 @@
 /**
  * Created by linda on 2016-10-09.
  */
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {Library} from "../../service/library";
 import {LibraryService} from "../../service/library.service";
 
@@ -17,7 +17,7 @@ import {LibraryService} from "../../service/library.service";
                   </select>
                   
                   <input type = "text" id = "comments"
-                         [(ngModel)]="library.comments" name = "comments">
+                         [(ngModel)]="library.addcomments" name = "comments">
                   
                   <button type = "submit">update</button>
                   
@@ -29,14 +29,28 @@ import {LibraryService} from "../../service/library.service";
 export class LibraryFormComponent{
   status = ['Pending', 'Passed', 'Failed'];
 
-  constructor(private libraryService: LibraryService){
-
-  }
-
   @Input()
   library: Library;
 
-  update(){
-    this.libraryService.updateLibrary(this.library.id, this.library.comments).subscribe();
+  @Output()
+  updatedLibs = new EventEmitter<Library[]>();
+
+  constructor(private libraryService: LibraryService){
   }
+
+
+  update(){
+    console.log("I am in form update");
+    this.libraryService.updateLibrary(this.library.id, this.library.status, (this.autoAppend()? ';Manual Review: ':';') + this.library.addcomments)
+        .subscribe(() => location.reload());
+  }
+
+
+  private autoAppend(): boolean{
+    if(this.library.comments.includes("Manual Review"))
+      return false;
+    else
+      return true;
+  }
+
 }

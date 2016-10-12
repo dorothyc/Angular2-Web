@@ -7,10 +7,10 @@ import '../rxjs-operators';
     template: `
                 <h1>Project Title</h1>
                 <nav>
-                    <a routerLink="/pending" routerLinkActive="active">Pending</a>
-                    <a routerLink="/tabone" routerLinkActive="active">TabOne</a>
-                    <a routerLink="/tabtwo" routerLinkActive="active">TabTwo</a>
-                    <a routerLink="/tabthree" routerLinkActive="active">TabThree</a>
+                    <a [routerLink] ="['/pending']" routerLinkActive="active">Pending</a>
+                    <a [routerLink] ="['/tabone']" routerLinkActive="active">TabOne</a>
+                    <a [routerLink] ="['/tabtwo']" routerLinkActive="active">TabTwo</a>
+                    <a [routerLink] ="['/tabthree']" routerLinkActive="active">TabThree</a>
                 </nav>
                 <br>
                 <router-outlet></router-outlet>
