@@ -7,15 +7,14 @@ import {Library} from "../service/library";
     selector: 'tab-two',
     template: `
                 {{title}}
-                <!--
                 <div *ngIf = "libraries">
                     <div *ngFor = "let lib of libraries">
+                        <br>
                         <input type = "checkbox">
                         <lib-list [library] = lib></lib-list>
-                        
                     </div>
                 </div>
-                -->
+
               `
     //templateUrl: 'app/view/navbar-body.html',
     //styleUrls: ['app/view/bootstrap.min.css']
@@ -23,7 +22,7 @@ import {Library} from "../service/library";
 
 export class TabTwoComponent {
   title: string = "This is TabTwo";
-  libraries: Library[];
+  libraries: Library[] = [];
 
   ngOnInit(): void {
   this.getLibraryFromLocal();
@@ -31,7 +30,9 @@ export class TabTwoComponent {
 
   constructor(private libraryService: LibraryService) { }
 
-  getLibraryFromLocal(){
-    this.libraryService.getLibraryFromLocal().subscribe(lib => this.libraries = lib);
-  }
+    getLibraryFromLocal() {
+        this.libraryService.getLibraryFromLocal()
+            .subscribe(libs => {for (let lib of libs) {this.libraries.push( new Library(lib.id, lib.library_id, lib.status.qc0_status, lib.status.qc_comments, lib.addcomments) )}});
+
+    }
 }

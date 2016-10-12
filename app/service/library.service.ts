@@ -14,6 +14,9 @@ export class LibraryService {
   private dataurl_database = 'http://localhost:8080/pending_db';
   private dataurl_local = 'http://localhost:8080/pending_local';
 
+
+// change the return type from Library[] to any[] database structure and Library.ts is not the same
+// to get the status from database: lib.status.qc0_status, while from Library.ts: lib.status
   getLibraryFromDatabase(): Observable<any[]> {
     return this.http.get(this.dataurl_database)
                .map(data => data.json())

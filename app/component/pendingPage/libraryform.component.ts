@@ -40,9 +40,8 @@ export class LibraryFormComponent{
 
 
   update(){
-    console.log("I am in form update");
     this.libraryService.updateLibrary(this.library.id, this.library.status, (this.autoAppend()? ';Manual Review: ':';') + this.library.addcomments)
-        .subscribe(() => location.reload());
+        .subscribe(data => this.updatedLibs.emit(data));
   }
 
 
