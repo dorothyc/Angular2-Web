@@ -11,7 +11,7 @@ import {Library} from "../../service/library";
                 
                 <div *ngIf = "libraries">
                     <div *ngFor = "let lib of libraries">
-                        <br>
+                        
                         <lib-list [library] = lib></lib-list>
                         <library-form [library] = lib></library-form>
                     </div>
