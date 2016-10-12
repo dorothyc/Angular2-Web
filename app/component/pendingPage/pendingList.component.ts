@@ -10,9 +10,11 @@ import {Library} from "../../service/library";
                 <button (click) = "getLibraryFromDatabase()">Get The Latest Pending List</button>
                 
                 <div *ngIf = "libraries">
-                <lib-list *ngFor = "let lib of libraries"
-                          [library] = lib> 
-                </lib-list>
+                    <div *ngFor = "let lib of libraries">
+                        <br>
+                        <lib-list [library] = lib></lib-list>
+                        <library-form [library] = lib></library-form>
+                    </div>
                 </div>
                 
                 <hero-form></hero-form>
