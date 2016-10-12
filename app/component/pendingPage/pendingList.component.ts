@@ -12,11 +12,12 @@ import {Library} from "../../service/library";
                 <div *ngIf = "libraries">
                     <div *ngFor = "let lib of libraries">
                         <lib-list [library] = lib></lib-list>
-                        <library-form [library] = lib (updatedlibs) = "updatedLibs($event)" ></library-form>
+                        <library-form [library] = lib></library-form>
+                        <br>
                     </div>
                 </div>
                 
-                <hero-form></hero-form>
+                <!--<hero-form></hero-form>-->
               `,
     providers: [ LibraryService ]
     //templateUrl: 'app/view/navbar-body.html',
@@ -25,7 +26,7 @@ import {Library} from "../../service/library";
 
 export class PendingListComponent implements OnInit{
     title: string = "This is Pending page";
-    libraries: Library[];
+    libraries: Library[] = [];
 
     ngOnInit(): void {
       this.getLibraryFromLocal();
@@ -33,19 +34,48 @@ export class PendingListComponent implements OnInit{
 
     constructor(private libraryService: LibraryService) { }
 
+
+    getLibraryFromDatabase() {
+        this.libraries = [];
+        this.libraryService.getLibraryFromDatabase()
+            .subscribe(libs => {for (let lib of libs) {this.libraries.push( new Library(lib.id, lib.library_id, lib.status.qc0_status, lib.status.qc_comments, lib.addcomments) )}});
+    }
+
+    getLibraryFromLocal() {
+        this.libraryService.getLibraryFromLocal()
+            .subscribe(libs => {for (let lib of libs) {this.libraries.push( new Library(lib.id, lib.library_id, lib.status.qc0_status, lib.status.qc_comments, lib.addcomments) )}});
+
+    }
+
+
+
+/*
+
     getLibraryFromDatabase() {
         this.libraryService.getLibraryFromDatabase()
-          .subscribe(lib => this.libraries = lib);
+            .subscribe(libs => this.libraries = libs);
     }
 
     getLibraryFromLocal(){
       this.libraryService.getLibraryFromLocal().subscribe(lib => this.libraries = lib);
     }
+*/
 
+
+/*
+    createLib(lib: any){
+        console.log("I am in creatLib");
+        this.library = new Library(lib.id, lib.library_id, lib.status.qc0_status, lib.status.qc_comments, lib.addcomments);
+        return this.library;
+    }
+*/
+
+/*
     updatedLibs(libs: Library[]){
       console.log("i am in updatedLibs");
       //this.libraries = null;
       this.title = 'new title';
       //setTimeout(() => this.libraries = libs, 0);
     }
+*/
 }

@@ -23,8 +23,6 @@ import {LibraryService} from "../../service/library.service";
                   
                 </div>
               </form>
-              
-              <button (click) = "testemit()">testemit</button>
             `
 })
 
@@ -40,10 +38,13 @@ export class LibraryFormComponent{
   constructor(private libraryService: LibraryService){
   }
 
+
   update(){
-    this.libraryService.updateLibrary(this.library.id, (this.autoAppend()? 'Manual Review: ':' ') + this.library.addcomments)
-        .subscribe(data => this.updatedLibs.emit(data));
+    console.log("I am in form update");
+    this.libraryService.updateLibrary(this.library.id, this.library.status, (this.autoAppend()? ';Manual Review: ':';') + this.library.addcomments)
+        .subscribe(() => location.reload());
   }
+
 
   private autoAppend(): boolean{
     if(this.library.comments.includes("Manual Review"))
@@ -52,8 +53,4 @@ export class LibraryFormComponent{
       return true;
   }
 
-  testemit(){
-    this.libraryService.updateLibrary(this.library.id, (this.autoAppend()? 'Manual Review: ':' ') + this.library.addcomments)
-      .subscribe(data => this.updatedLibs.emit(data));
-  }
 }
