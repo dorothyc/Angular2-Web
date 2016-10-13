@@ -1,5 +1,5 @@
-import { InMemoryDbService } from 'angular2-in-memory-web-api';
-export class PersonData implements InMemoryDbService {
+//import { InMemoryDbService } from 'angular2-in-memory-web-api';
+export class PersonData {
   createDb() {
     let persons = [
       { id: '1', name: 'Windstorm' },

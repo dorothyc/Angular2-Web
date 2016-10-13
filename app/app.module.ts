@@ -1,7 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, JsonpModule }  from '@angular/http';
-import { InMemoryWebApiModule }     from 'angular2-in-memory-web-api';
+//import { InMemoryWebApiModule }     from 'angular2-in-memory-web-api';
 
 import { PendingListComponent } from './component/pendingPage/pendingList.component';
 import { ProjectTitleComponent } from './component/project-title.component';
