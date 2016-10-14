@@ -20,13 +20,13 @@ export class LibraryService {
   getLibraryFromDatabase(): Observable<any[]> {
     return this.http.get(this.dataurl_database)
                .map(data => data.json())
-               .catch(this.handleError);
+               //.catch(this.handleError);
   }
 
   getLibraryFromLocal(): Observable<any[]> {
     return this.http.get(this.dataurl_local)
       .map(data => data.json())
-      .catch(this.handleError);
+      //.catch(this.handleError);
   }
 
 
@@ -37,7 +37,7 @@ export class LibraryService {
 
     return this.http.post(this.dataurl_database, body, options)
       .map(data => data.json())
-      .catch(this.handleError);
+      //.catch(this.handleError);
   }
 
 

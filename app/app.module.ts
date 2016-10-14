@@ -20,8 +20,9 @@ import {OnChangesParentComponent} from "./tutorial-online/onchange/onchange.pare
 import {OnChangesComponent} from "./tutorial-online/onchange/onchange.child.component";
 import {LibraryService} from "./service/library.service";
 
-//import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
-//import {DialogueComponent} from "./tutorial-online/modal-test/dialogue.component";
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+import {DialogueComponent} from "./tutorial-online/modal-test/dialogue.component";
 
 // Looks like adding Angular2-in-memory-web-api in 'imports' will override other mock servers
 @NgModule({
@@ -29,9 +30,10 @@ import {LibraryService} from "./service/library.service";
              routing,
              HttpModule,
              JsonpModule,
-             FormsModule
+             FormsModule,
 
-             //BootstrapModalModule
+             ModalModule.forRoot(),
+             BootstrapModalModule
            ],
 
   declarations: [
@@ -52,14 +54,14 @@ import {LibraryService} from "./service/library.service";
 
     // onchanges examples
     OnChangesParentComponent,
-    OnChangesComponent
+    OnChangesComponent,
 
     //testing
-    //DialogueComponent
+    DialogueComponent
   ],
 
   providers: [LibraryService],
 
-  bootstrap: [ ProjectTitleComponent ]
+  bootstrap: [ ProjectTitleComponent, DialogueComponent ]
 })
 export class AppModule { }
