@@ -8,7 +8,7 @@ import {LibraryService} from "../../service/library.service";
 @Component({
   selector: 'library-form',
   template: `
-              <form (ngSubmit) = update() #libform = "ngForm">
+              <form (ngSubmit) = checkUpdate() #libform = "ngForm">
                 <div>
                 
                   <select id = "status"
@@ -38,6 +38,21 @@ export class LibraryFormComponent{
   constructor(private libraryService: LibraryService){
   }
 
+
+  checkUpdate(){
+    if(this.library.addcomments == null){
+      if ( window.confirm("No further comments?") ){
+        this.library.addcomments = "No further comments";
+        this.update();
+      }
+    }
+    else{
+      if( window.confirm("Status: " + this.library.status + ";" + "Comments: " + this.library.addcomments + "?") ){
+        this.update();
+      }
+    }
+    return;
+  }
 
   update(){
     this.libraryService.updateLibrary(this.library.id, this.library.status, (this.autoAppend()? ';Manual Review: ':';') + this.library.addcomments)
