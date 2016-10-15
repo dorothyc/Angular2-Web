@@ -13,7 +13,18 @@ import {Library} from "../../service/library";
                     <div *ngFor = "let lib of libraries">
                         <br>
                         <lib-list [library] = lib></lib-list>
-                        <library-form [library] = lib (updatedLibs) = "updatedLibs($event)"></library-form>
+                        <library-form 
+                            [library] = lib 
+                            (updatedLibs) = "updatedLibs($event)"
+                            (reviewedLib) = "reviewedLib($event)">
+                        </library-form>
+                    </div>
+                </div>
+
+                <br>
+                <div *ngIf = "reviewed">
+                    <div *ngFor = "let lib of reviewed">
+                        {{lib.id}} has been reviewed
                     </div>
                 </div>
                 
@@ -27,6 +38,7 @@ import {Library} from "../../service/library";
 export class PendingListComponent implements OnInit{
     title: string = "This is Pending page";
     libraries: Library[] = [];
+    reviewed: Library[] = [];
 
     ngOnInit(): void {
       this.getLibraryFromLocal();
@@ -56,6 +68,10 @@ export class PendingListComponent implements OnInit{
         for (let lib of libs){
             this.libraries.push( new Library(lib.id, lib.library_id, lib.status.qc0_status, lib.status.qc_comments, lib.addcomments) )
         }
+    }
+
+    reviewedLib(lib: any){
+        this.reviewed.push ( new Library(lib.id, lib.library_id, lib.status.qc0_status, lib.status.qc_comments, lib.addcomments) );
     }
 
 

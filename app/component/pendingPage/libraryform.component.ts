@@ -35,6 +35,9 @@ export class LibraryFormComponent{
   @Output()
   updatedLibs = new EventEmitter<Library[]>();
 
+  @Output()
+  reviewedLib = new EventEmitter<Library>();
+
   constructor(private libraryService: LibraryService){
   }
 
@@ -56,7 +59,10 @@ export class LibraryFormComponent{
 
   update(){
     this.libraryService.updateLibrary(this.library.id, this.library.status, (this.autoAppend()? ';Manual Review: ':';') + this.library.addcomments)
-        .subscribe(data => this.updatedLibs.emit(data));
+        .subscribe(data => {
+                            this.updatedLibs.emit(data);
+                            this.reviewedLib.emit(this.library);
+                           });
   }
 
 
