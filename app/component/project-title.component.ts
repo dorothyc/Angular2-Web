@@ -16,6 +16,9 @@ import '../rxjs-operators';
                 <router-outlet></router-outlet>
                 <br>
                 <dialogue></dialogue>
+                <br>
+                <br>
+                <heroes-list></heroes-list>
               `
     //templateUrl: 'app/view/navbar-title.html',
     //styleUrls: ['app/view/bootstrap.min.css', 'app/view/navbar.css']

@@ -22,7 +22,12 @@ import {LibraryService} from "./service/library.service";
 
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+
 import { DialogueComponent } from "./tutorial-online/modal-test/dialogue.component";
+import {HeroesListComponent} from "./tutorial-online/service-injector/heros-list.component";
+import {HeroCardComponent} from "./tutorial-online/service-injector/hero-card.component";
+import {HeroEditorComponent} from "./tutorial-online/service-injector/hero-editor.component";
+import {HeroesService} from "./tutorial-online/service-injector/heroes.service";
 
 // Looks like adding Angular2-in-memory-web-api in 'imports' will override other mock servers
 @NgModule({
@@ -57,10 +62,14 @@ import { DialogueComponent } from "./tutorial-online/modal-test/dialogue.compone
     OnChangesComponent,
 
     //testing
-    DialogueComponent
+    DialogueComponent,
+
+      HeroesListComponent,
+      HeroCardComponent,
+      HeroEditorComponent
   ],
 
-  providers: [LibraryService],
+  providers: [LibraryService, HeroesService],
 
   bootstrap: [ ProjectTitleComponent ]
 })
