@@ -14,6 +14,7 @@ import { Hero } from './hero';
     <div>
       <ul>
         <li *ngFor="let editItem of heroes">
+          <p>testing: {{editItem.item.name}}</p>
           <hero-card
             [hidden]="editItem.editing"
             [hero]="editItem.item">
@@ -36,8 +37,13 @@ import { Hero } from './hero';
 export class HeroesListComponent {
     heroes: Array<EditItem<Hero>>;
     constructor(heroesService: HeroesService) {
+       console.log("now in constructor:");
         this.heroes = heroesService.getHeroes()
-            .map(item => new EditItem(item));
+            .map(item => {  
+                            console.log("now in list constructor: ");
+                            console.log(item);
+                            return new EditItem(item)
+                        });
     }
 
     onSaved (editItem: EditItem<Hero>, updatedHero: Hero) {
@@ -46,6 +52,8 @@ export class HeroesListComponent {
     }
 
     onCanceled (editItem: EditItem<Hero>) {
+        console.log("now in list oncanceled");
+        console.log(editItem.item);
         editItem.editing = false;
     }
 }

@@ -25,23 +25,36 @@ export class HeroEditorComponent {
     @Output() canceled = new EventEmitter();
     @Output() saved = new EventEmitter();
 
-    constructor(private restoreService: RestoreService<Hero>) {}
+    count: number = 0;
+
+    constructor(private restoreService: RestoreService<Hero>) {
+        console.log("now in editor constructor: ");
+    }
 
     @Input()
     set hero (hero: Hero) {
+        console.log("now in hero-editor input hero: ");
+        console.log(hero);
         this.restoreService.setItem(hero);
     }
 
     get hero () {
+        this.count++;
+        console.log("now in editor get hero: " + this.count);
         return this.restoreService.getItem();
     }
+
 
     onSaved () {
         this.saved.emit(this.restoreService.getItem());
     }
 
     onCanceled () {
+        console.log("now in editor onCanceled: ");
+        console.log(this.hero);
         this.hero = this.restoreService.restoreItem();
-        this.canceled.next(this.hero);
+        console.log("now in editor onCanceled after change: ");
+        console.log(this.hero);
+        this.canceled.emit(this.hero);
     }
 }
