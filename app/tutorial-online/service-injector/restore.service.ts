@@ -21,7 +21,7 @@ export class RestoreService<T> {
 
         //this.currentItem = this.originalItem;
         console.log(this.originalItem);
-        console.log(this.currentItem);
+        //console.log(this.currentItem);
         //console.log(this.thirdItem);
 
     }
@@ -29,18 +29,18 @@ export class RestoreService<T> {
     getItem (): T {
         this.count++;
         console.log("now in service get item: " + this.count);
-        console.log(this.originalItem);
+        console.log(JSON.stringify(this.originalItem));
         console.log(this.currentItem);
-        return this.currentItem;
+        return this.originalItem;
     }
 
     restoreItem (): T {
         console.log("now in restore service restore item: ");
         console.log(this.originalItem);
-        console.log(this.currentItem);
+        //console.log(this.currentItem);
         //console.log(this.thirdItem);
 
-        return this.currentItem;
+        return this.originalItem;
         //this.currentItem = this.originalItem;
         //return this.getItem();
     }
@@ -49,5 +49,6 @@ export class RestoreService<T> {
         // super poor clone implementation
         console.log("now in clone: ");
         return JSON.parse(JSON.stringify(item));
+        //return item;
     }
 }

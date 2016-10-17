@@ -37,7 +37,6 @@ import { Hero } from './hero';
 export class HeroesListComponent {
     heroes: Array<EditItem<Hero>>;
     constructor(heroesService: HeroesService) {
-       console.log("now in constructor:");
         this.heroes = heroesService.getHeroes()
             .map(item => {  
                             console.log("now in list constructor: ");

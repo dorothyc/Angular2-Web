@@ -13,7 +13,7 @@ import { Hero } from './hero';
     template: `
     <div>
       <span>Name:</span>
-      <input [(ngModel)]="hero.name"/>
+      <input (input)="hero.name=$event.target.value"/>
       <div>
         <button (click)="onSaved()">save</button>
         <button (click)="onCanceled()">cancel</button>
