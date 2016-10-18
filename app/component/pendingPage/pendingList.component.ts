@@ -17,6 +17,9 @@ import {Library} from "../../service/library";
                     </div>
                 </div>
                 
+                <br>
+                <dialogue></dialogue>
+                
                 <!--<hero-form></hero-form>-->
               `,
     providers: [ LibraryService ]
