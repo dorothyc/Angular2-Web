@@ -4,6 +4,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {Library} from "../../service/library";
 import {LibraryService} from "../../service/library.service";
+import {HistoryService} from "../../service/history.service";
 
 @Component({
   selector: 'library-form',
@@ -38,7 +39,8 @@ export class LibraryFormComponent{
   @Output()
   reviewedLib = new EventEmitter<Library>();
 
-  constructor(private libraryService: LibraryService){
+  constructor(private libraryService: LibraryService,
+              private historyService: HistoryService){
   }
 
 
@@ -63,6 +65,8 @@ export class LibraryFormComponent{
                             this.updatedLibs.emit(data);
                             this.reviewedLib.emit(this.library);
                            });
+
+    this.historyService.addReviewedLibrary(this.library);
   }
 
 
