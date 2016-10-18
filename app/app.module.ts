@@ -30,6 +30,7 @@ import {HeroEditorComponent} from "./tutorial-online/service-injector/hero-edito
 import {HeroesService} from "./tutorial-online/service-injector/heroes.service";
 import {AstronautComponent} from "./tutorial-online/service-observable/astro.component";
 import {MissionControlComponent} from "./tutorial-online/service-observable/mission.component";
+import {MissionService} from "./tutorial-online/service-observable/mission.service";
 
 // Looks like adding Angular2-in-memory-web-api in 'imports' will override other mock servers
 @NgModule({
@@ -74,7 +75,7 @@ import {MissionControlComponent} from "./tutorial-online/service-observable/miss
       MissionControlComponent
   ],
 
-  providers: [LibraryService, HeroesService],
+  providers: [LibraryService, HeroesService, MissionService],
 
   bootstrap: [ ProjectTitleComponent ]
 })

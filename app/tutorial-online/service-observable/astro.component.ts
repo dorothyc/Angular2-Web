@@ -19,8 +19,10 @@ import { Subscription }   from 'rxjs/Subscription';
   `
 })
 
-export class AstronautComponent implements OnDestroy {
-    @Input() astronaut: string;
+export class AstronautComponent {
+    //@Input() astronaut: string;
+    astronaut: string  = 'test-astro';
+
     mission = '<no mission announced>';
     confirmed = false;
     announced = false;
@@ -42,9 +44,12 @@ export class AstronautComponent implements OnDestroy {
         this.missionService.confirmMission(this.astronaut);
     }
 
+
+    /*
     ngOnDestroy() {
         // prevent memory leak when component destroyed
         this.subscription.unsubscribe();
     }
+    */
 }
 

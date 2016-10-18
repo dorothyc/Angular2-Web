@@ -12,16 +12,18 @@ import { MissionService }     from './mission.service';
     
     <!-- <button (click)="announce()">Announce mission</button> -->
     
+    <!--
     <my-astronaut *ngFor="let astronaut of astronauts"
       [astronaut]="astronaut">
     </my-astronaut>
+    -->
     
     <h3>History</h3>
     <ul>
       <li *ngFor="let event of history">{{event}}</li>
     </ul>
   `,
-    providers: [MissionService]
+    //providers: [MissionService]
 })
 export class MissionControlComponent {
     astronauts = ['Lovell', 'Swigert', 'Haise'];
