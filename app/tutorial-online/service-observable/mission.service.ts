@@ -9,7 +9,10 @@ import { Subject }    from 'rxjs/Subject';
 export class MissionService {
     // Observable string sources
     //private missionAnnouncedSource = new Subject<string>();
-    private missionConfirmedSource = new Subject<string>();
+
+    astros: string[] = [];
+
+    private missionConfirmedSource = new Subject<string[]>();
 
     // Observable string streams
     //missionAnnounced$ = this.missionAnnouncedSource.asObservable();
@@ -23,7 +26,8 @@ export class MissionService {
     */
 
     confirmMission(astronaut: string) {
-        this.missionConfirmedSource.next(astronaut);
+        this.astros.push(astronaut);
+        this.missionConfirmedSource.next(this.astros);
     }
 }
 

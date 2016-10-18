@@ -36,7 +36,9 @@ export class MissionControlComponent {
     constructor(private missionService: MissionService) {
         missionService.missionConfirmed$.subscribe(
             astronaut => {
+                console.log("i am in misson constructor: ");
                 this.history.push(`${astronaut} confirmed the mission`);
+                console.log(JSON.stringify(astronaut));
             });
     }
 
