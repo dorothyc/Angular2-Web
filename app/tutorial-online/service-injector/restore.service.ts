@@ -21,7 +21,7 @@ export class RestoreService<T> {
 
         //this.currentItem = this.originalItem;
         console.log(this.originalItem);
-        //console.log(this.currentItem);
+        console.log(this.currentItem);
         //console.log(this.thirdItem);
 
     }
@@ -31,7 +31,7 @@ export class RestoreService<T> {
         console.log("now in service get item: " + this.count);
         console.log(JSON.stringify(this.originalItem));
         console.log(this.currentItem);
-        return this.originalItem;
+        return this.currentItem;
     }
 
     restoreItem (): T {
