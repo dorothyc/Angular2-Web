@@ -17,13 +17,13 @@ import { MissionService }     from './mission.service';
       [astronaut]="astronaut">
     </my-astronaut>
     -->
+    <my-astronaut></my-astronaut>
     
     <h3>History</h3>
     <ul>
       <li *ngFor="let event of history">{{event}}</li>
     </ul>
   `,
-    //providers: [MissionService]
 })
 export class MissionControlComponent {
     astronauts = ['Lovell', 'Swigert', 'Haise'];
@@ -33,10 +33,13 @@ export class MissionControlComponent {
         'Fly to Vegas!'];
     nextMission = 0;
 
+    count: number = 0;
+
     constructor(private missionService: MissionService) {
+        this.count++;
         missionService.missionConfirmed$.subscribe(
             astronaut => {
-                console.log("i am in misson constructor: ");
+                console.log("i am in misson constructor: " + this.count);
                 this.history.push(`${astronaut} confirmed the mission`);
                 console.log(JSON.stringify(astronaut));
             });

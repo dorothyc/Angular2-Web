@@ -14,6 +14,9 @@ export class MissionService {
 
     private missionConfirmedSource = new Subject<string[]>();
 
+    constructor(){
+    }
+
     // Observable string streams
     //missionAnnounced$ = this.missionAnnouncedSource.asObservable();
     missionConfirmed$ = this.missionConfirmedSource.asObservable();
@@ -28,6 +31,11 @@ export class MissionService {
     confirmMission(astronaut: string) {
         this.astros.push(astronaut);
         this.missionConfirmedSource.next(this.astros);
+    }
+
+    getconfirmed(){
+        this.missionConfirmedSource.next(this.astros);
+        return this.missionConfirmed$;
     }
 }
 

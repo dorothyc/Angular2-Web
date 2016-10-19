@@ -16,6 +16,8 @@ import { Subscription }   from 'rxjs/Subscription';
         Confirm
       </button>
     </p>
+    
+    <p>{{history}}</p>
   `
 })
 
@@ -28,6 +30,8 @@ export class AstronautComponent {
     announced = false;
     subscription: Subscription;
 
+    history: string[] = [];
+
     constructor(private missionService: MissionService) {
         /*
         this.subscription = missionService.missionAnnounced$.subscribe(
@@ -37,6 +41,8 @@ export class AstronautComponent {
                 this.confirmed = false;
             });
         */
+
+        this.missionService.missionConfirmed$.subscribe(data => this.history = data);
     }
 
     confirm() {
