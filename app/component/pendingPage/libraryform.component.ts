@@ -47,7 +47,7 @@ export class LibraryFormComponent{
   checkUpdate(){
     if(this.library.addcomments == null){
       if ( window.confirm("No further comments?") ){
-        this.library.addcomments = "No further comments";
+        this.library.addcomments = "No changes made";
         this.update();
       }
     }
